@@ -263,7 +263,11 @@
     });
 
     global.addEventListener('click', async e => {
-        const el = e.target.closest('[data-url]');
+        //const el = e.target.closest('[data-url]');
+
+        const target = e.target;
+        const el = target && target.closest ? target.closest('[data-url]') : null;
+
         if (!el) return;
 
         const confirm = el.dataset.confirm;
